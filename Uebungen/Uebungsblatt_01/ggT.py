@@ -40,6 +40,7 @@ def kgV_02(a,b):
     
     kgv = 0
     for i in factors:
-        kgv += i
+        kgv *= i
     return kgv
-print(kgV_02(60,70))
+
+print(kgV(60,70))
