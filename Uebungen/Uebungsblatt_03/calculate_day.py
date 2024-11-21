@@ -12,9 +12,14 @@ def main():
         months = {"Jan":31, "Feb":28, "Mar":31, "Apr":30, "Mar":31, "Jun":30, "Jul":31, 
                   "Aug":31, "Sep":30, "Oct":31, "Nov":30, "Dec":31} #create dictionary to store all months with their total days
 
-        if not is_leapyear(int(year)):
-            if int(day) != months[month]:
-                return "Error. Input day is not corret."        
+        if month not in months:
+            return "Error. Input month is not correct"               
+        
+        if not is_leapyear(int(year)): # when not a leapyear, check if given month has correct given days
+            if month == "Feb" and day > 28:
+                return "Error. Input day is not correct."  
+            elif day > months[month]:
+                return "Error. Input day is not correct"           
 
         dayInYear = 0
         for currentMonth, days in months.items():

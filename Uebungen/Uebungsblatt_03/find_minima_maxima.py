@@ -16,6 +16,6 @@ def main():
         return maxima, minima
     
     print(find_minima_maxima([1,3,5,4,6,5,1,2,1,1]))
-    print(find_minima_maxima([0,2,1,4,6,5,1,2,1,1]))
-    print(find_minima_maxima([1,3,5,4,6,5,6,2,1,1]))
+    print(find_minima_maxima([1]))
+    print(find_minima_maxima([1,1,1,1]))
 main()
