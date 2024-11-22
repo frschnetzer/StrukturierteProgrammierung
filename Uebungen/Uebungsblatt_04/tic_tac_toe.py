@@ -1,17 +1,18 @@
 def main():
     def draw_board(board):
         print("\n")
-        print("\t     |     |")
-        print("\t  {}  |  {}  |  {}".format(board[0], board[1], board[2]))
-        print('\t_____|_____|_____')
+        print('\t _________________')
+        print("\t|     |     |     |")
+        print("\t|  {}  |  {}  |  {}  |".format(board[0], board[1], board[2]))
+        print('\t|_____|_____|_____|')
 
-        print("\t     |     |")
-        print("\t  {}  |  {}  |  {}".format(board[3], board[4], board[5]))
-        print('\t_____|_____|_____')
+        print("\t|     |     |     |")
+        print("\t|  {}  |  {}  |  {}  |".format(board[3], board[4], board[5]))
+        print('\t|_____|_____|_____|')
 
-        print("\t     |     |")
-        print("\t  {}  |  {}  |  {}".format(board[6], board[7], board[8]))
-        print('\t_____|_____|_____')
+        print("\t|     |     |     |")
+        print("\t|  {}  |  {}  |  {}  |".format(board[6], board[7], board[8]))
+        print('\t|_____|_____|_____|')
 
     def switch_Player(isPlayer1):
         if isPlayer1:
