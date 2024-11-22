@@ -1,12 +1,17 @@
 def main():
     def draw_board(board):
-        print("----------------------------")
-        print(f"|  {board[0]}  |  {board[1]}  |  {board[2]}  |")
-        print("----------------------------")
-        print(f"|  {board[3]}  |  {board[4]}  |  {board[5]}  |")
-        print("----------------------------")
-        print(f"|  {board[6]}  |  {board[7]}  |  {board[8]}  |")
-        print("----------------------------")
+        print("\n")
+        print("\t     |     |")
+        print("\t  {}  |  {}  |  {}".format(board[0], board[1], board[2]))
+        print('\t_____|_____|_____')
+
+        print("\t     |     |")
+        print("\t  {}  |  {}  |  {}".format(board[3], board[4], board[5]))
+        print('\t_____|_____|_____')
+
+        print("\t     |     |")
+        print("\t  {}  |  {}  |  {}".format(board[6], board[7], board[8]))
+        print('\t_____|_____|_____')
 
     def switch_Player(isPlayer1):
         if isPlayer1:
@@ -18,7 +23,7 @@ def main():
         return isPlayer1, symbol
 
     def tic_tac_toe():
-        board = ["none", "none", "none", "none", "none", "none", "none", "none", "none"]
+        board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
         wins = [[1,2,3], [4,5,6], [7,8,9], [1,5,9], [3,5,7], [1,4,7], [2,5,8], [3,6,9]]
 
         list_player1 = []
@@ -26,12 +31,12 @@ def main():
 
         isPlayer1 = True
         symbol = ""
-        while "none" in board:
+        while " " in board:
             draw_board(board)
             isPlayer1, symbol = switch_Player(isPlayer1)
 
             x = int(input()) #ausgehend, dass korrekte daten eingegeben werden
-            while(x > 9 or x < 0):
+            while((x > 9 or x < 0) or (x in list_player1 or x in list_player2)):
                 print("Entry is not valid")
                 x = int(input())
 
@@ -43,10 +48,17 @@ def main():
                 list_player2.append(x)
 
             isPlayer1 = not isPlayer1 
-            if list_player1 in wins:
-                return "Winner is Player 1"
-            elif list_player2 in wins:
-                return "Winner is Player 2"
+
+            for x in wins: # get every possible win and check if one player has combination               
+                if all(y in list_player1 for y in x):
+                    draw_board(board)
+                    return "Winner is Player 1"
+                
+                if all(y in list_player2 for y in x):
+                    draw_board(board)
+                    return "Winner is Player 2"
+                
+        draw_board(board)
         return "It's a draw!"            
 
     print(tic_tac_toe())

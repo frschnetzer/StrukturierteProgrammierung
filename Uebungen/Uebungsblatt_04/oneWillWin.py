@@ -1,23 +1,45 @@
 import random
 def main():
     def oneWillWin(n,m):
-        players = []
-        for i in range(n):
-            players.append(i)
-        counter = 0
-        #start = random.choice(players)
-        start = 6
-        while(len(players) >= 1):
-            for i in players[start:]: #TODO: finde heraus wie im "Kreis" gehen
-                if counter == m:
-                    players.remove(i)
-                    print(f"Removed: {i}")
-                    counter = 0
-                    start = i
-                else:
-                    counter += 1
-        return players
+        positionList = [True] * n        
+        currentPosition = 0
+        number_active_position = n
 
+        while number_active_position > 1:
+            i = 1
+            while i < m: # step till m is reached
+                currentPosition = (currentPosition + 1) % n # increasing and keep in ring
+                if positionList[currentPosition] == True: # 
+                    i += 1
+
+            positionList[currentPosition] = False 
+            number_active_position -= 1           
+
+            while positionList[currentPosition] == False:
+                currentPosition = (currentPosition + 1) % n            
+            
+        return currentPosition
+    
+    def oneWillWin_02(n,m):
+        positionList = [True] * n        
+        currentPosition = 0
+        number_active_position = n
+
+        while number_active_position > 1:
+            i = 1
+            while i < m: # step till m is reached
+                currentPosition = (currentPosition + 1) % n # increasing and keep in ring
+                if positionList[currentPosition] == True: # 
+                    i += 1
+
+            positionList[currentPosition] = False 
+            number_active_position -= 1           
+
+            while positionList[currentPosition] == False:
+                currentPosition = (currentPosition + 1) % n            
+            
+        return currentPosition
+    
     n = 7
     m = 3
     print(oneWillWin(n,m))
