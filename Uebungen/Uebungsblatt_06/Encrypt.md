@@ -1,12 +1,13 @@
 # Encrypt Algorithm
+## TODO programmieren, nicht ganzer text auf einmal sondern wort für wort ausgeben
 
 ## Encrypt(IN text, OUT encryptedText)
-seperators = [',', '.', ' ']  <!-- create list with valid seperators -->\
+seperators = [',', '.', ' ']  create list with valid seperators\
 specialWords = {'heute': 'nretsO', 'Bahnhof': '402U', 'alle': 'hci'}\
 encryptedText = emtpy string\
 counter = 0\
-for char in text  <!-- iterating through the whole input text -->\
-    word = empty string  <!-- create empty string to store word -->\
+for char in text  //iterating through the whole input text\
+    word = empty string  //create empty string to store word\
     if char is not in separators\
 		word = AppendCharToWord(IN char, OUT word)\
 	else\
